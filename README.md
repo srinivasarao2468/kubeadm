@@ -4,7 +4,7 @@
 ### launch centos-7 VM's using [Vagrantfile](https://github.com/srinivasarao2468/kubeadm/blob/master/Vagrantfile).
 ## Root privileges
 ```
-sudo su -
+$ sudo su -
 ```
 ### Update your VM with below command
 ```
@@ -104,7 +104,7 @@ $ yum install -y kubelet kubeadm kubectl --disableexcludes=kubernetes
 ```
 ### After the installation is complete, restart all those servers
 ```
-sudo reboot
+$ reboot
 ```
 ### Again login to servers and start the services of docker and kubelet
 ```
@@ -126,9 +126,16 @@ $ sed -i 's/cgroup-driver=systemd/cgroup-driver=cgroupfs/g' /etc/systemd/system/
 
 ### To intialize the kubeadm cluster
 ```
-kubeadm init --apiserver-advertise-address=192.168.1.10 --pod-network-cidr=192.168.0.0/16
+$ kubeadm init --apiserver-advertise-address=192.168.1.10 --pod-network-cidr=192.168.0.0/16
 ```
 ### If you found any error related to cpu run below command because it needs 2 cpus
 ```
- kubeadm init --apiserver-advertise-address=192.168.1.10 --pod-network-cidr=192.168.0.0/16 --ignore-preflight-errors=NumCPU
+ $ kubeadm init --apiserver-advertise-address=192.168.1.10 --pod-network-cidr=192.168.0.0/16 --ignore-preflight-errors=NumCPU
  ```
+
+### installing pod network add-on Calico into this cluster[Official installation guide](https://kubernetes.io/docs/setup/independent/create-cluster-kubeadm/#pod-network)
+For Calico to work correctly, you need to pass --pod-network-cidr=192.168.0.0/16 to kubeadm init or update the calico.yml file to match your Pod network. Note that Calico works on amd64, arm64, and ppc64le only.
+```
+$ kubectl apply -f https://docs.projectcalico.org/v3.3/getting-started/kubernetes/installation/hosted/rbac-kdd.yaml
+$ kubectl apply -f https://docs.projectcalico.org/v3.3/getting-started/kubernetes/installation/hosted/kubernetes-datastore/calico-networking/1.7/calico.yaml
+```
