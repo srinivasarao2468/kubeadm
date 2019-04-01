@@ -1,7 +1,7 @@
 # Kubeadm
 ### install  Vargrant and oracle Virtualbox on your laptop
 
-### launch centos-7 VM's using Vagrantfile [Click Here](https://github.com/srinivasarao2468/kubeadm/blob/master/Vagrantfile).
+### launch centos-7 VM's using [Vagrantfile](https://github.com/srinivasarao2468/kubeadm/blob/master/Vagrantfile).
 ## Root privileges
 ```
 sudo su -
