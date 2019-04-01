@@ -123,7 +123,7 @@ And you see the docker is using 'cgroupfs' as a cgroup-driver.
 ```
 $ sed -i 's/cgroup-driver=systemd/cgroup-driver=cgroupfs/g' /etc/systemd/system/kubelet.service.d/10-kubeadm.conf
 ```
-
+## Run these commands on Master
 ### To intialize the kubeadm cluster
 ```
 $ kubeadm init --apiserver-advertise-address=192.168.1.10 --pod-network-cidr=192.168.0.0/16
@@ -132,7 +132,15 @@ $ kubeadm init --apiserver-advertise-address=192.168.1.10 --pod-network-cidr=192
 ```
  $ kubeadm init --apiserver-advertise-address=192.168.1.10 --pod-network-cidr=192.168.0.0/16 --ignore-preflight-errors=NumCPU
  ```
+Copy the 'kubeadm join ... ... ...' command to your text editor. The command will be used to register new nodes to the kubernetes cluster.
 
+### Now in order to use Kubernetes, we need to run some commands as on the result.
+#### Create new '.kube' configuration directory and copy the configuration 'admin.conf'.
+```
+mkdir -p $HOME/.kube
+sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
+sudo chown $(id -u):$(id -g) $HOME/.kube/config
+```
 ### installing pod network add-on Calico into this cluster[Official installation guide](https://kubernetes.io/docs/setup/independent/create-cluster-kubeadm/#pod-network)
 For Calico to work correctly, you need to pass --pod-network-cidr=192.168.0.0/16 to kubeadm init or update the calico.yml file to match your Pod network. Note that Calico works on amd64, arm64, and ppc64le only.
 ```
