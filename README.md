@@ -42,9 +42,9 @@ $ swapoff -a
 $ vi /etc/fstab
 ```
 ### Enable br_netfilter Kernel Module
-```
+
 The br_netfilter module is required for kubernetes installation. Enable this kernel module so that the packets traversing the bridge are processed by iptables for filtering and for port forwarding, and the kubernetes pods across the cluster can communicate with each other.
-```
+
 ### Run the command below to enable the br_netfilter kernel module
 ```
 $ modprobe br_netfilter
