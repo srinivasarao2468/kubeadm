@@ -5,7 +5,11 @@ items:
     kind: Namespace
     metadata:
       name: dev
+      label:
+        name: dev
   - apiVersion: v1
     kind: Namespace
     metadata:
       name: itg
+      label:
+        name: itg

@@ -12,17 +12,17 @@ Kubernetes starts with 3 initial namespaces:
 ```
 $ kubectl get namespaces name
 ```
-### Create namespace in cluster
+### Create namespace in cluster using [namespace.yaml](https://raw.githubusercontent.com/srinivasarao2468/kubeadm/master/Namespace/namespace.yaml)
 ```
 $ kubectl create namespaces name
 or
-$ kubectl create -f [namespace.yaml](https://raw.githubusercontent.com/srinivasarao2468/kubeadm/master/Namespace/namespace.yaml)
+$ kubectl create -f namespace.yaml
 ```
 ### To get detailed information of namespace
 ```
 $ kubectl describe namespaces name
 ```
-### delete namespace in cluster
+### delete namespace in cluster using [namespace.yaml](https://raw.githubusercontent.com/srinivasarao2468/kubeadm/master/Namespace/namespace.yaml)
 ```
 $ kubectl delete namespaces name
 or
