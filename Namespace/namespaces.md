@@ -9,8 +9,8 @@ Kubernetes starts with 3 initial namespaces:
 **Note:** Avoid creating namespace with prefix kube-, since it is reserved for Kubernetes system namespaces
 
 #### A namespace can be in one of two phases:
-* Active the namespace is in use
-* Terminating the namespace is being deleted, and can not be used for new objects
+* ```Active``` the namespace is in use
+* ```Terminating``` the namespace is being deleted, and can not be used for new objects
 
 ### List the current namespaces in a cluster using.
 ```
@@ -30,5 +30,5 @@ $ kubectl describe namespaces name
 ```
 $ kubectl delete namespaces name
 or
-$ kubectl create -f [namespace.yaml](https://raw.githubusercontent.com/srinivasarao2468/kubeadm/master/Namespace/namespace.yaml)
+$ kubectl create -f namespace.yaml
 ```
