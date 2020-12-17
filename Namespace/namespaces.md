@@ -12,6 +12,9 @@ Kubernetes starts with 3 initial namespaces:
 * ```Active``` the namespace is in use
 * ```Terminating``` the namespace is being deleted, and can not be used for new objects
 
+**Finilizar**
+There's an optional field finalizers, which allows observables to purge resources whenever the namespace is deleted. Keep in mind that if you specify a nonexistent ```finalizer```, the namespace will be created but will get stuck in the ```Terminating``` state if the user tries to delete it
+
 ### List the current namespaces in a cluster using.
 ```
 $ kubectl get namespaces name
