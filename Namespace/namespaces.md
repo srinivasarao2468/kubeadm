@@ -8,6 +8,10 @@ Kubernetes starts with 3 initial namespaces:
 
 **Note:** Avoid creating namespace with prefix kube-, since it is reserved for Kubernetes system namespaces
 
+#### A namespace can be in one of two phases:
+* Active the namespace is in use
+* Terminating the namespace is being deleted, and can not be used for new objects
+
 ### List the current namespaces in a cluster using.
 ```
 $ kubectl get namespaces name
